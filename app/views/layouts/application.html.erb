@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SampleApp</title>
+    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <%# /static_pages/homeにアクセスするとhome.html.erbの内容がHTMLに変換され、yiedの位置に挿入される %>
     <%= yield %>
   </body>
 </html>
