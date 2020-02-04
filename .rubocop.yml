@@ -1,0 +1,6 @@
+# 日本語のコメントを許容
+Style/AsciiComments:
+  Enabled: false
+# frozen云々と入力されなくする。
+Style/FrozenStringLiteralComment:
+  Enabled: false
