@@ -6,7 +6,8 @@ ruby '2.6.5'
 # リスト5.5下のbundle install でこけた時に追加
 gem 'ffi', '1.11.2'
 gem 'sassc', '2.2.1'
-
+# rubocopの導入
+gem 'rubocop', '~> 0.79.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '6.0.0'
 gem 'bootstrap-sass', '3.4.1'
