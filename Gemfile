@@ -12,7 +12,7 @@ gem 'rubocop', '~> 0.79.0'
 gem 'rails', '6.0.0'
 gem 'bootstrap-sass', '3.4.1'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
