@@ -4,3 +4,8 @@ Style/AsciiComments:
 # frozen云々と入力されなくする。
 Style/FrozenStringLiteralComment:
   Enabled: false
+# 無効化するファイルの設定
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - 'vendor/**/*'
