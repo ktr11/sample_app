@@ -9,3 +9,9 @@ AllCops:
   Exclude:
     - db/schema.rb
     - 'vendor/**/*'
+# 配列は1行で書くべきとか言うやつ
+Layout/ArrayAlignment:
+  Enabled: false
+# hashは1行で書くべき
+Layout/HashAlignment: 
+  Enabled: false
