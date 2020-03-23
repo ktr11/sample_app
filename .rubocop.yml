@@ -4,3 +4,14 @@ Style/AsciiComments:
 # frozen云々と入力されなくする。
 Style/FrozenStringLiteralComment:
   Enabled: false
+# 無効化するファイルの設定
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - 'vendor/**/*'
+# 配列は1行で書くべきとか言うやつ
+Layout/ArrayAlignment:
+  Enabled: false
+# hashは1行で書くべき
+Layout/HashAlignment: 
+  Enabled: false
