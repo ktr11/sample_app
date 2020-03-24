@@ -35,3 +35,4 @@ yarn-debug.log*
 .yarn-integrity
 .DS_Store
 /spring/*.pid
+db/test.sqlite3*
