@@ -15,3 +15,5 @@ Layout/ArrayAlignment:
 # hashは1行で書くべき
 Layout/HashAlignment: 
   Enabled: false
+Style/EmptyMethod: 
+  Enabled: false
