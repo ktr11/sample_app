@@ -19,7 +19,8 @@ class UsersControllerTest < AbstractControllerTest
     assert_select("input[type='text'][name='user[name]'][id='user_name']", count: 1)
     assert_select("input[type='email'][name='user[email]'][id='user_email']", count: 1)
     assert_select("input[type='password'][name='user[password]'][id='user_password']", count: 1)
-    assert_select("input[type='password'][name='user[password_confirmation]'][id='user_password_confirmation']",
+    assert_select("input[type='password'][name='user[password_confirmation]']" \
+                      "[id='user_password_confirmation']",
                   count: 1)
     assert_select("input[type='submit'][name='commit']", count: 1)
     assert_select('form.new_user input', count: 5)
