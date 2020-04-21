@@ -4,7 +4,7 @@ class UsersControllerTest < AbstractControllerTest
   def setup
     super
     @user = User.new(name: 'Example User', email: 'user@example.com',
-      password: 'foobar', password_confirmation: 'foobar')
+                     password: 'foobar', password_confirmation: 'foobar')
     @user.save
   end
 
