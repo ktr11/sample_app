@@ -8,7 +8,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX =
     /\A[a-z\d]+[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   validates(:email, presence: true, length: { maximum: 255 },
-    format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false })
+                    format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false })
   # セキュアなパスワード
   has_secure_password
   validates(:password, presence: true, length: { minimum: 6 })
