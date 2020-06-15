@@ -28,5 +28,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect! # 正しいリダイレクト先に遷移するよね？というメソッド
     assert_template 'users/show'
     assert_not flash.empty?
+    assert t_logged_in?
   end
 end
