@@ -29,9 +29,15 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     delete logout_path
     assert_not t_logged_in?
     assert_redirected_to root_url
+    delete logout_path # 別タブでもログアウトしたユーザーを想定
     follow_redirect!
     assert_select 'a[href=?]', login_path, count: 1
     assert_select 'a[href=?]', logout_path,      count: 0
     assert_select 'a[href=?]', user_path(@user), count: 0
+  end
+
+  # remember_digestがNULLでもログアウトは落ちない？
+  test 'authenticated? should return false for a user with nil digest' do
+    assert_not @user.authenticated?('')
   end
 end
