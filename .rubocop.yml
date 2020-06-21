@@ -22,3 +22,11 @@ Layout/LineLength:
 # private,protectedのメソッドは一段深くインデントさせるべき
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
+
+# ABC Size Checkを緩くする
+Metrics/AbcSize:
+  Max: 30
+
+# classes/modulesを書くときはnestedじゃなくてコンパクトにする
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
