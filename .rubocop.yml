@@ -25,4 +25,8 @@ Layout/IndentationConsistency:
 
 # ABC Size Checkを緩くする
 Metrics/AbcSize:
-  Max: 20
+  Max: 30
+
+# classes/modulesを書くときはnestedじゃなくてコンパクトにする
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
