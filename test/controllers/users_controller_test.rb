@@ -23,7 +23,7 @@ class UsersControllerTest < AbstractControllerTest
                       "[id='user_password_confirmation']",
                   count: 1)
     assert_select("input[type='submit'][name='commit']", count: 1)
-    assert_select('form.new_user input', count: 5)
+    assert_select('form input', count: 5)
   end
 
   test 'should get user' do
