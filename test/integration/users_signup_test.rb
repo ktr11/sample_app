@@ -25,7 +25,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password: 'password',
                                          password_confirmation: 'password' } }
     end
-    follow_redirect! # 正しいリダイレクト先に遷移するよね？というメソッド
+    follow_redirect! # テスト対象をリダイレクト先に移すメソッド
     assert_template 'users/show'
     assert_not flash.empty?
     assert t_logged_in?
