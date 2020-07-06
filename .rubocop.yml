@@ -9,6 +9,7 @@ Style/FrozenStringLiteralComment:
 AllCops:
   Exclude:
     - db/schema.rb
+    - db/migrate/*
     - 'vendor/**/*'
 
 # 空メソッドのスタイル
@@ -30,3 +31,7 @@ Metrics/AbcSize:
 # classes/modulesを書くときはnestedじゃなくてコンパクトにする
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
+
+# シンボル配列は[:symbol_a, :symbol_b]の書き方で書く
+Style/SymbolArray:
+  EnforcedStyle: brackets

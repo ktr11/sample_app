@@ -82,4 +82,13 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal name,  @user.name
     assert_equal email, @user.email
   end
+
+  test 'should not allow the admin attribute to be edited via the web' do
+    t_log_in_as(@other_user)
+    assert_not @other_user.admin?
+    patch user_path(@other_user), params: { user: { password: 'password',
+                                                    password_confirmation: 'password',
+                                                    admin: true } }
+    assert_not @other_user.admin?
+  end
 end
