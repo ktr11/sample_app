@@ -27,19 +27,4 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     get users_path
     assert_select 'a', text: 'delete', count: 0
   end
-
-  test 'should redirect destroy when not logged in' do
-    assert_no_difference 'User.count' do
-      delete user_path(@admin)
-    end
-    assert_redirected_to login_url
-  end
-
-  test 'should redirect destroy when logged in as a non-admin' do
-    t_log_in_as(@non_admin)
-    assert_no_difference 'User.count' do
-      delete user_path(@admin)
-    end
-    assert_redirected_to root_url
-  end
 end
