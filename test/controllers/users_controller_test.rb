@@ -13,6 +13,11 @@ class UsersControllerTest < AbstractControllerTest
     assert_response :success
   end
 
+  test 'should redirect index when not logged in' do
+    get users_path
+    assert_redirected_to login_url
+  end
+
   test 'should get new 2' do
     get '/users/new'
     assert_response :success
@@ -23,7 +28,7 @@ class UsersControllerTest < AbstractControllerTest
                       "[id='user_password_confirmation']",
                   count: 1)
     assert_select("input[type='submit'][name='commit']", count: 1)
-    assert_select('form.new_user input', count: 5)
+    assert_select('form input', count: 5)
   end
 
   test 'should get user' do

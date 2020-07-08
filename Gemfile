@@ -11,7 +11,10 @@ gem 'rubocop', '~> 0.79.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'bcrypt', '~> 3.1', '>= 3.1.13'
 gem 'bootstrap-sass', '3.4.1'
+gem 'bootstrap-will_paginate', '1.0.0'
+gem 'faker', '2.1.2'
 gem 'rails', '6.0.2'
+gem 'will_paginate', '3.1.8'
 # Use Puma as the app server
 gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets

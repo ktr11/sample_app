@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersSignupTest < ActionDispatch::IntegrationTest
   test 'invalid signup information' do
     get signup_path
-    assert_select 'form[action="/signup"]'
+    assert_select 'form[action="/users"]'
     assert_no_difference 'User.count' do
       post signup_path, params: { user: { name: '',
                                           email: 'user@invalid',
@@ -25,7 +25,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password: 'password',
                                          password_confirmation: 'password' } }
     end
-    follow_redirect! # 正しいリダイレクト先に遷移するよね？というメソッド
+    follow_redirect! # テスト対象をリダイレクト先に移すメソッド
     assert_template 'users/show'
     assert_not flash.empty?
     assert t_logged_in?
