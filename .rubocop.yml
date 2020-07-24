@@ -20,6 +20,10 @@ Style/EmptyMethod:
 Layout/LineLength:
   Max: 100
 
+# メソッドの行数
+Metrics/MethodLength:
+  Max: 20
+
 # private,protectedのメソッドは一段深くインデントさせるべき
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
@@ -35,3 +39,7 @@ Style/ClassAndModuleChildren:
 # シンボル配列は[:symbol_a, :symbol_b]の書き方で書く
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+# &&とandの出しわけ
+Style/AndOr:
+  Enabled: false
