@@ -19,7 +19,6 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_difference 'User.count', -1 do
       delete user_path(@non_admin)
     end
-    # assert_not flash.empty?
   end
 
   test 'index as non-admin' do
