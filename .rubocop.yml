@@ -43,3 +43,7 @@ Style/SymbolArray:
 # &&とandの出しわけ
 Style/AndOr:
   Enabled: false
+
+# unless
+Style/GuardClause: 
+  Enabled: false
