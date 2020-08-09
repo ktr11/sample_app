@@ -1,3 +1,4 @@
+# パスワード再設定 コントローラー
 class PasswordResetsController < ApplicationController
   before_action :find_user, only: [:edit, :update]
   before_action :valid_user, only: [:edit, :update]
@@ -28,6 +29,7 @@ class PasswordResetsController < ApplicationController
     elsif @user.update(user_params)
       log_in @user
       flash[:succsess] = 'Password has been reset.'
+      @user.update_attribute(:reset_digest, nil)
       redirect_to @user
     else
       render 'edit'
