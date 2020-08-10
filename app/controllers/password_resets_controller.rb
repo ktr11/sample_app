@@ -1,6 +1,7 @@
 # パスワード再設定 コントローラー
 class PasswordResetsController < ApplicationController
-  before_action :find_user, only: [:edit, :update]
+  before_action :find_user_by_token, only: [:edit]
+  before_action :find_user, only: [:update]
   before_action :valid_user, only: [:edit, :update]
   before_action :check_expiration, only: [:edit, :update]
   def new
@@ -29,7 +30,7 @@ class PasswordResetsController < ApplicationController
     elsif @user.update(user_params)
       log_in @user
       flash[:succsess] = 'Password has been reset.'
-      @user.update_attribute(:reset_digest, nil)
+      @user.update_columns(email_token: nil, reset_digest: nil)
       redirect_to @user
     else
       render 'edit'
@@ -44,7 +45,12 @@ class PasswordResetsController < ApplicationController
 
     # beforeフィルター
 
-    # ユーザーの取得
+    # メールアドレストークンでユーザーの取得
+    def find_user_by_token
+      @user = User.find_by(email_token: params[:p])
+    end
+
+    # メールアドレスでユーザーの取得
     def find_user
       @user = User.find_by(email: params[:email].downcase)
     end

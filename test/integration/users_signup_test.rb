@@ -31,19 +31,21 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_equal 1, ActionMailer::Base.deliveries.size
     user = assigns(:user)
+    assert_not_nil user.email_token
     assert_not user.activated?
     # 有効化していない状態でログインしてみる
     t_log_in_as(user)
     assert_not t_logged_in?
     # 有効化トークンが不正な場合
-    get edit_account_activation_path('invalid token', email: user.email)
+    get edit_account_activation_path('invalid token', p: user.email_token)
     assert_not t_logged_in?
-    # トークンは正しいがメールアドレスが無効な場合
-    get edit_account_activation_path(user.activation_token, email: 'wrong')
+    # トークンは正しいがメールアドレストークンが無効な場合
+    get edit_account_activation_path(user.activation_token, p: 'wrong')
     assert_not t_logged_in?
-    # 有効化トークンが正しい場合
-    get edit_account_activation_path(user.activation_token, email: user.email)
+    # 有効化トークン,メールアドレストークンが正しい場合
+    get edit_account_activation_path(user.activation_token, p: user.email_token)
     assert user.reload.activated?
+    assert_nil user.email_token
     follow_redirect! # テスト対象をリダイレクト先に移すメソッド
     assert_template 'users/show'
     assert_not flash.empty?
