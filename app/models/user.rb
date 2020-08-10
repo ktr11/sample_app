@@ -46,7 +46,7 @@ class User < ApplicationRecord
 
   # アカウントを有効にする
   def activate
-    update_columns(activated: true, activated_at: Time.zone.now)
+    update_columns(email_token: nil, activated: true, activated_at: Time.zone.now)
   end
 
   # 有効化用のメールを送信する
@@ -57,7 +57,9 @@ class User < ApplicationRecord
   # パスワード再設定の属性を設定する
   def create_reset_digest
     self.reset_token = User.new_token
-    update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
+    update_columns(email_token: User.new_token,
+                   reset_digest: User.digest(reset_token),
+                   reset_sent_at: Time.zone.now)
   end
 
   # パスワード再設定のメールを送信する
@@ -77,8 +79,9 @@ class User < ApplicationRecord
       email.downcase!
     end
 
-    # 有効化トークンとダイジェストを作成および代入する
+    # メールアドレストークンと有効化トークンとダイジェストを作成および代入する
     def create_activation_digest
+      self[:email_token] = User.new_token
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
     end
