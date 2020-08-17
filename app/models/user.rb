@@ -73,6 +73,11 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # 試作feedの定義
+  def feed
+    microposts.where('user_id = ?', id)
+  end
+
   private
 
     # メールアドレスを小文字に変更
