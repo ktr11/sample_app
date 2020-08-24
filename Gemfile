@@ -9,6 +9,7 @@ gem 'sassc', '2.2.1'
 # rubocopの導入
 gem 'rubocop', '~> 0.79.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'active_storage_validations', '0.8.2'
 gem 'bcrypt', '~> 3.1', '>= 3.1.13'
 gem 'bootstrap-sass', '3.4.1'
 gem 'bootstrap-will_paginate', '1.0.0'
@@ -40,7 +41,7 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
@@ -69,4 +70,4 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
