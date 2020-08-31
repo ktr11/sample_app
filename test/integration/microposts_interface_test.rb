@@ -9,7 +9,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     t_log_in_as(@user)
     get root_path
     assert_select 'div.pagination'
-    assert_select 'input[type="files"]'
+    assert_select 'input[type="file"]'
     # 無効な送信
     assert_no_difference 'Micropost.count' do
       post microposts_path, params: { micropost: { content: '' } }
