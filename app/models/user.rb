@@ -83,7 +83,8 @@ class User < ApplicationRecord
 
   # ユーザーのステータスフィードを返す
   def feed
-    Micropost.where('user_id IN (?) OR user_id = ?', following_ids, id)
+    part_of_feed = 'relationships.follower_id = :id or microposts.user_id = :id'
+    Micropost.joins(user: :followers).where(part_of_feed, id: id)
   end
 
   # ユーザーをフォローする
