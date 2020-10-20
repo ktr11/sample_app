@@ -1,0 +1,28 @@
+include:
+  - "**/*.rb"
+  - "config/model_definitions/task.rb"
+  - "definitions.rb"
+exclude:
+  - spec/**/*
+  - test/**/*
+  - vendor/**/*
+  - ".bundle/**/*"
+require:
+  - actioncontroller
+  - actioncable
+  - actionmailer
+  - actionpack
+  - actionview
+  - activejob
+  - activemodel
+  - activerecord
+  - activestorage
+  - activesupport
+domains: []
+reporters:
+  - rubocop
+  - typecheck
+require_paths:
+  - "config/model_definitions"
+plugins: []
+max_files: 10000
