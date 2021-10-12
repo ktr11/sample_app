@@ -19,7 +19,7 @@ gem 'image_processing', '1.9.3'
 gem 'mini_magick', '4.9.5'
 gem 'will_paginate', '3.1.8'
 # Use Puma as the app server
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 5.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
