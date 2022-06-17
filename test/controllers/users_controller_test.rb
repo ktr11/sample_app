@@ -82,4 +82,14 @@ class UsersControllerTest < AbstractControllerTest
     assert_select("img[alt='#{@user.name}'][src*='#{gravatar_url}']")
     assert_select('h1', /#{@user.name}/)
   end
+
+  test 'should redirect following when not logged in' do
+    get following_user_path(@user)
+    assert_redirected_to login_url
+  end
+
+  test 'should redirect followers when not logged in' do
+    get followers_user_path(@user)
+    assert_redirected_to login_url
+  end
 end
